@@ -1,0 +1,41 @@
+<form [formGroup]="ficheForm" (ngSubmit)="onSubmit()">
+    <label>
+      libelle:
+      <input type="text" formControlName="libelle" required>
+    </label>
+  
+    <label>
+      temps:
+      <input type="number" formControlName="temps" required>
+    </label>
+
+    <label>
+        lieu:
+        <input type="text" formControlName="lieu" required>
+      </label>
+
+      <label>
+        url:
+        <input type="text" formControlName="url" required>
+      </label>
+
+      <label>
+        note:
+        <input type="text" formControlName="note" required>
+      </label>
+
+      <label for="utilisateur-select">utilisateur:</label>
+        <select [(ngModel)]="selectedUtilisateur"   id="utilisateur-select" formControlName="utilisateur" required>
+            <option [ngValue]="null" disabled>sélectionner un utilisateur</option>
+            <option [ngValue]="u" *ngFor="let u of utilisateurs">{{u.id}}. {{u.prenom}} {{u.nom}}</option>
+        </select>
+
+        <label for="tableau-select">tableau kanban:</label>
+        <select [(ngModel)]="selectedTableau"   id="tableau-select" formControlName="tableau" required>
+            <option [ngValue]="null" disabled>sélectionner un tableau</option>
+            <option [ngValue]="t" *ngFor="let t of tableaux">{{t.id}}. {{t.titre}}</option>
+        </select>
+
+        <button type="submit" [disabled]="!ficheForm.valid">Submit</button>
+  </form>
+  
