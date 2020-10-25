@@ -1,41 +1,56 @@
 <form [formGroup]="ficheForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-4">
     <label>
       libelle:
       <input type="text" formControlName="libelle" required>
     </label>
-  
+    </div>
+    <div class="form-group col-md-4">
     <label>
       temps:
       <input type="number" formControlName="temps" required>
     </label>
-
+    </div>
+    <div class="form-group col-md-4">
     <label>
         lieu:
         <input type="text" formControlName="lieu" required>
       </label>
-
+    </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
       <label>
         url:
         <input type="text" formControlName="url" required>
       </label>
-
+      </div>
+    <div class="form-group col-md-6">
       <label>
         note:
         <input type="text" formControlName="note" required>
       </label>
-
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
       <label for="utilisateur-select">utilisateur:</label>
         <select [(ngModel)]="selectedUtilisateur"   id="utilisateur-select" formControlName="utilisateur" required>
             <option [ngValue]="null" disabled>sélectionner un utilisateur</option>
             <option [ngValue]="u" *ngFor="let u of utilisateurs">{{u.id}}. {{u.prenom}} {{u.nom}}</option>
         </select>
-
+    </div>
+    <div class="form-group col-md-6">
         <label for="tableau-select">tableau kanban:</label>
         <select [(ngModel)]="selectedTableau"   id="tableau-select" formControlName="tableau" required>
             <option [ngValue]="null" disabled>sélectionner un tableau</option>
             <option [ngValue]="t" *ngFor="let t of tableaux">{{t.id}}. {{t.titre}}</option>
         </select>
-
-        <button type="submit" [disabled]="!ficheForm.valid">Submit</button>
+  </div>
+  </div>
+  <div class="text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="!ficheForm.valid">Submit</button>
+  </div>
   </form>
   
