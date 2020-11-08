@@ -31,8 +31,25 @@ export class KanbanServiceService {
     );
   }
 
+  getAllFiches(): Observable<Fiche[]>{
+    let API_URL = `${this.apiUrl}/fiche/getAllFiches`;
+    
+    return this.http.get<Fiche[]>(API_URL,{ headers: this.headers}).pipe(
+      catchError(this.error)
+    );
+  }
+
   addFiche(idTableau: number, idUtilisateur: number, body: string): Observable<number>{
     let API_URL = `${this.apiUrl}/fiche/addFiche/${idTableau}/${idUtilisateur}`;
+    
+    
+    return this.http.post<number>(API_URL, body, { headers: this.headers, }).pipe(
+      catchError(this.error)
+    );
+  }
+
+  addTableau(body: string): Observable<number>{
+    let API_URL = `${this.apiUrl}/tableau/addTableau`;
     
     
     return this.http.post<number>(API_URL, body, { headers: this.headers, }).pipe(

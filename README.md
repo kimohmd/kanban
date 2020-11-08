@@ -1,27 +1,35 @@
-# Kanban
+# Kanban (TP intégration back-end & front-end)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
-## Development server
+## Lancement serveur Back-end
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+pour lancer le serveur Back-end suivez les instructions données
+[ici](https://github.com/kimohmd/TPSpring/tree/master/spring-boot-sample-data-jpa-standalone)
 
-## Code scaffolding
+#### Remarque
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+notez qu'au lancement du serveur Back-end 2 utilisateurs sont créés dans la BDD.
 
-## Build
+## Installation des dépendences
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+pour installer les dépendances
 
-## Running unit tests
+```bash
+npm install
+```
+## Lancement du serveur Front-end
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+pour lancer le serveur de developpement
+ 
+```bash
+ng serve
+```
+puis rendez-vous dans `http://localhost:4200/`.
 
-## Running end-to-end tests
+## Remarque
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+un proxy est utilisé pour éviter les problèmes de cors. Il est configuré dans le fichier proxy.conf.json, et permet de rediriger les appels au APIs depuis http://localhost:4200/* vers le serveur Back-end sur http://localhost:8080.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Auteur
+Abdel Karim HAMMAD

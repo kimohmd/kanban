@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Utilisateur} from '../domain';
+import {Fiche, Utilisateur} from '../domain';
 import {KanbanServiceService} from '../kanban-service.service';
 
 @Component({
@@ -9,17 +9,18 @@ import {KanbanServiceService} from '../kanban-service.service';
   providers: []
 })
 export class DisplayKanbanComponent implements OnInit {
-
-  utilisateurs: Utilisateur[];
-  displayedColumns: string[] = ['id', 'nom', 'prenom', 'fonction'];
+ 
+  
+  fiches: Fiche[];
+  displayedColumns: string[] = ['id', 'libelle', 'date', 'temps', 'lieu', 'url', 'note', 'etat', 'utilisateur'];
   constructor(private kanbanServiceService: KanbanServiceService) { 
     
 
   }
 
   ngOnInit(): void {
-    this.kanbanServiceService.getAllUtilisateurs().subscribe((data) => {
-      this.utilisateurs= data;
+    this.kanbanServiceService.getAllFiches().subscribe((data) => {
+      this.fiches= data;
       
      })
   }

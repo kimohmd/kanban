@@ -12,6 +12,10 @@ export class Tableau{
 	fiches: Fiche[];
 }
 
+export class NewTableau{
+	titre: String;
+	}
+
 export class Fiche{
 	libelle: string;
 	temps: number;

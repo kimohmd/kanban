@@ -9,10 +9,12 @@ import {MatTableModule} from '@angular/material/table';
 import { AddFicheComponent } from './add-fiche/add-fiche.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { AddTableauComponent } from './add-tableau/add-tableau.component';
 
 const appRoutes: Routes = [
   { path: 'utilisateurs', component: DisplayKanbanComponent },
   { path: 'nouvelleFiche', component: AddFicheComponent },
+  { path: 'nouveauTableau', component: AddTableauComponent },
   { path: '', component: DisplayKanbanComponent }
 ];
 
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DisplayKanbanComponent,
-    AddFicheComponent
+    AddFicheComponent,
+    AddTableauComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ const appRoutes: Routes = [
     MatTableModule,
     ReactiveFormsModule,
     HttpClientModule,  
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {useHash: true}),
   ],
   providers: [KanbanServiceService],
   bootstrap: [AppComponent]
